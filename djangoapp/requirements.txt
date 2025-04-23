@@ -1,3 +1,4 @@
 Django
-psychopg2-binary
+psycopg2-binary
+
 
