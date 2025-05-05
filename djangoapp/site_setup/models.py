@@ -43,7 +43,7 @@ class SiteSetup(models.Model):
 
     def save(self, *args, **kwargs):
         current_favicon_name = str(self.favicon.name)
-        super().save(*args, **kwargs)
+        super_save = super().save(*args, **kwargs)
         favicon_changed = False
 
         if self.favicon:
@@ -51,6 +51,8 @@ class SiteSetup(models.Model):
 
         if favicon_changed:
             resize_image(self.favicon, 32)
+
+        return super_save
  
     def __str__(self):
         return self.title
